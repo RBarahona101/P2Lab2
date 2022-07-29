@@ -2,17 +2,17 @@ package lab2p2_rigobertobarahona;
 import java.util.ArrayList;
 public class Empleados {
     
+    private String IDE;
+    private int status;
+    private String nombreE;
+    private ArrayList listEmpleados = new ArrayList();
+        
     public Empleados(){
-        private int age;
-        private String IDE;
-        private int status;
-        private String nombreE;
-        private ArrayList listEmpleados = new ArrayList();
-
-    public Empleados(String IDE, int status, String nombreE) {
+    }           
+    public Empleados(String IDE, String nombreE, int status) {
         this.IDE = IDE;
-        this.status = status;
         this.nombreE = nombreE;
+        this.status = status;
     }
 
     public String getIDE() {
@@ -45,9 +45,5 @@ public class Empleados {
 
     public void setlistEmpleados(ArrayList listEmpleados) {
         this.listEmpleados = listEmpleados;
-    }
-        
-        
-        
     }
 }

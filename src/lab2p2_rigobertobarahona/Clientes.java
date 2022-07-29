@@ -23,7 +23,7 @@ public class Clientes {
 
     public double getMonto() {
         return monto;
-    }
+        }
 
     public ArrayList getlistClientes() {
         return listClientes;
@@ -48,6 +48,11 @@ public class Clientes {
     public void setlistClientes(ArrayList listClientes) {
         this.listClientes = listClientes;
     }
+    public void setlistClientes(String nombreC, String IDC, String edadC){
+        this.nombreC = nombreC;
+        this.IDC = IDC;
+        this.edadC = edadC; 
+    }
         
     public Clientes(){  
     }
@@ -58,16 +63,16 @@ public class Clientes {
         this.edadC = edadC;
     }
 
-    public Clientes(String nombreC, String IDC, String edadC, double monto) {
+    public Clientes(String nombreC, String IDC, double monto, String edadC) {
         this.nombreC = nombreC;
         this.IDC = IDC;
-        this.edadC = edadC;
         this.monto = monto;
+        this.edadC = edadC;
     }
     public String toString() {
         return "Nombre: " + nombreC + "\n"
-        + "ID: " + IDC
-        + "Monto a pagar: " + monto;
+        + " ID: " + IDC + "\n"
+        + " Monto a pagar: " + monto;
     }
     
     

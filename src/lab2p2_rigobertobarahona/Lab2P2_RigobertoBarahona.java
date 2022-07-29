@@ -12,12 +12,16 @@ public class Lab2P2_RigobertoBarahona {
         System.out.println("1) Iniciar Sesion como Administrador");
         int opcion = lea.nextInt();
         if (opcion == 1){
-            System.out.print("Username: ");
-            String username = lea.next();
-            System.out.print("Password: ");
-            String pass = lea.next();
-            if (username.equals("admin") && pass.equals("admin1234")){
-                flag1 = true;
+            boolean flag2 = false;
+            while (flag2 == false){
+                System.out.print("Username: ");
+                String username = lea.next();
+                System.out.print("Password: ");
+                String pass = lea.next();
+                if (username.equals("admin") && pass.equals("admin1234")){
+                    flag1 = true;
+                    flag2 = true;
+                }
             }
         } else{
             System.out.println(":)");
@@ -51,30 +55,58 @@ public class Lab2P2_RigobertoBarahona {
                                 lea.nextLine();
                                 System.out.print("Nombre de Cliente: ");
                                 String nombreC = lea.nextLine();
-                                lea.nextLine();
                                 System.out.print("ID de Cliente: ");
                                 String IDC = lea.nextLine();
                                 System.out.print("Edad de Cliente: ");
                                 String edadC = lea.next();
                                 if (listCarros.size() == 0){
                                     System.out.println(":D");
-                                    listClientes.add(new Clientes(IDC, edadC, nombreC));
+                                    listClientes.add(new Clientes(nombreC,IDC,edadC));
                                 }
                                 else{
                                     System.out.println(": )");
                                     System.out.print("Monto a pagar: ");
                                     double monto = lea.nextDouble();
-                                    listClientes.add(new Clientes(IDC,edadC,nombreC,monto));
+                                    listClientes.add(new Clientes(nombreC,IDC,monto,edadC));
                                 }
                                 break;
                             }
                             case 2: {
-                                
+                                lea.nextLine();
+                                if (listClientes.size()> 0){
+                                    System.out.print("Indice de cliente a modificar");
+                                    int indice = lea.nextInt();
+                                    if (listClientes.get(indice) instanceof Clientes){
+                                        System.out.print("Nombre: ");
+                                        String nombreC = lea.nextLine();
+                                   /*     listClientes.get(indice).setNombreC(nombreC); */
+                                        System.out.print("ID: ");
+                                        String IDC = lea.nextLine();
+                                        System.out.print("Edad: ");
+                                        String edadC = lea.nextLine();
+                         /*               listClientes.get(indice).setListClientes(nombreC, IDC, edadC); */
+                                    }else{
+                                        System.out.println("Valores Requiridos INvalidos");
+                                    }
+                                }
+                                break;
                             }
                             case 3: {
-                                
+                                if (listClientes.size()> 0){
+                                    System.out.println("Indice de cliente a eliminar");
+                                    int indice = lea.nextInt();
+                                    listClientes.remove(indice);
+                                    System.out.println("Eliminacion Completa");
+                                }
+                                break;
                             }
                             case 4: {
+                                String list = "";
+                                for (Object temp : listClientes){
+                                    if (temp instanceof Clientes)
+                                    list += " " + temp;
+                                }
+                                System.out.println(list);
                                 System.out.println(listClientes);
                                 break;
                             }
@@ -111,6 +143,9 @@ public class Lab2P2_RigobertoBarahona {
                                 System.out.print("ID de Empleado: ");
                                 String IDE = lea.nextLine();
                                 int status = 1;
+                                listEmpleados.add(new Empleados(nombreE,IDE,status));
+                            }
+                            case 2: {
                                 
                             }
                         }
@@ -132,7 +167,8 @@ public class Lab2P2_RigobertoBarahona {
                                 String marca = lea.next();
                                 System.out.print("Modelo: ");
                                 String modelo = lea.next();
-                                listCarros.add(new Carros(marca,modelo));
+                                int status = 0;
+                                listCarros.add(new Carros(marca,modelo,status));
                                 System.out.println(listCarros);
                                 break;
                             }
