@@ -48,10 +48,11 @@ public class Clientes {
     public void setlistClientes(ArrayList listClientes) {
         this.listClientes = listClientes;
     }
-    public void setlistClientes(String nombreC, String IDC, String edadC){
+    public void setlistClientes(String nombreC, String IDC, String edadC,double monto){
         this.nombreC = nombreC;
         this.IDC = IDC;
         this.edadC = edadC; 
+        this.monto = monto;
     }
         
     public Clientes(){  

@@ -46,4 +46,23 @@ public class Empleados {
     public void setlistEmpleados(ArrayList listEmpleados) {
         this.listEmpleados = listEmpleados;
     }
+    public void setlistEmpleados(String nombreE, String IDE, int status){
+        this.nombreE = nombreE;
+        this.IDE = IDE;
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        String temp = "";
+        if (status % 2 != 0){
+            temp = "Inactivo";
+        } else{
+            temp = "Activo";
+        }
+        return "Nombre: " + nombreE + "\n"
+        + "ID: " + IDE + "\n"
+        + "Status: " + temp;       
+    }
+    
 }
